@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block contenido %}
+
+<h3>Agregar Inventario</h3>
+
+<form method="POST">
+    {% csrf_token %}
+
+    <select name="producto" class="form-control mt-2">
+        <option>Seleccione producto</option>
+        {% for prod in productos %}
+            <option value="{{ prod.id }}">{{ prod.nombre }}</option>
+        {% endfor %}
+    </select>
+
+    <input class="form-control mt-2" type="text" name="nombre" placeholder="Nombre">
+    <input class="form-control mt-2" type="text" name="tipo" placeholder="Tipo">
+    <input class="form-control mt-2" type="date" name="fecha_caducidad">
+    <input class="form-control mt-2" type="text" name="contenido" placeholder="Contenido">
+
+    <select name="proveedor" class="form-control mt-2">
+        <option>Seleccione proveedor</option>
+        {% for p in proveedores %}
+            <option value="{{ p.id }}">{{ p.nombre }}</option>
+        {% endfor %}
+    </select>
+
+    <button class="btn btn-success mt-3">Guardar</button>
+
+</form>
+
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block contenido %}
+
+<h3>Inventario</h3>
+
+<table class="table table-striped mt-3">
+    <tr>
+        <th>ID</th>
+        <th>Producto</th>
+        <th>Nombre</th>
+        <th>Tipo</th>
+        <th>Proveedor</th>
+        <th>Fecha Caducidad</th>
+        <th>Contenido</th>
+        <th>Acciones</th>
+    </tr>
+
+    {% for i in inventarios %}
+    <tr>
+        <td>{{ i.id }}</td>
+        <td>{{ i.producto.nombre }}</td>
+        <td>{{ i.nombre }}</td>
+        <td>{{ i.tipo }}</td>
+        <td>{{ i.proveedor.nombre }}</td>
+        <td>{{ i.fecha_caducidad }}</td>
+        <td>{{ i.contenido }}</td>
+
+        <td>
+            <a class="btn btn-warning btn-sm" href="/actualizar_inventario/{{ i.id }}/">Editar</a>
+            <a class="btn btn-danger btn-sm" href="/borrar_inventario/{{ i.id }}/">Borrar</a>
+
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block contenido %}
+
+<h3>Actualizar Proveedor</h3>
+
+<form method="POST" action="/realizar_actualizacion_proveedor/{{ proveedor.id }}/">
+    {% csrf_token %}
+    <input class="form-control mt-2" type="text" name="nombre" value="{{ proveedor.nombre }}">
+    <input class="form-control mt-2" type="text" name="direccion" value="{{ proveedor.direccion }}">
+    <input class="form-control mt-2" type="text" name="telefono" value="{{ proveedor.telefono }}">
+    <input class="form-control mt-2" type="email" name="correo_electronico" value="{{ proveedor.correo_electronico }}">
+    <input class="form-control mt-2" type="text" name="tipo_producto" value="{{ proveedor.tipo_producto }}">
+
+    <button class="btn btn-primary mt-3">Actualizar</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block contenido %}
+
+<h3>Agregar Proveedor</h3>
+
+<form method="POST">
+    {% csrf_token %}
+    <input class="form-control mt-2" type="text" name="nombre" placeholder="Nombre">
+    <input class="form-control mt-2" type="text" name="direccion" placeholder="Dirección">
+    <input class="form-control mt-2" type="text" name="telefono" placeholder="Teléfono">
+    <input class="form-control mt-2" type="email" name="correo_electronico" placeholder="Correo">
+    <input class="form-control mt-2" type="text" name="tipo_producto" placeholder="Tipo producto">
+
+    <button class="btn btn-success mt-3">Guardar</button>
+</form>
+
+{% endblock %}

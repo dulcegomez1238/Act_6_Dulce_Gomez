@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block contenido %}
+
+<h3>Lista de Proveedores</h3>
+
+<table class="table table-striped mt-3">
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Dirección</th>
+        <th>Teléfono</th>
+        <th>Correo</th>
+        <th>Tipo Producto</th>
+        <th>Acciones</th>
+    </tr>
+
+    {% for p in proveedores %}
+    <tr>
+        <td>{{ p.id }}</td>
+        <td>{{ p.nombre }}</td>
+        <td>{{ p.direccion }}</td>
+        <td>{{ p.telefono }}</td>
+        <td>{{ p.correo_electronico }}</td>
+        <td>{{ p.tipo_producto }}</td>
+        <td>
+            <a class="btn btn-warning btn-sm" href="/actualizar_proveedor/{{ p.id }}/">Editar</a>
+            <a class="btn btn-danger btn-sm" href="/borrar_proveedor/{{ p.id }}/">Borrar</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

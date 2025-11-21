@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block contenido %}
+
+<h3>Agregar Producto</h3>
+
+<form method="POST">
+    {% csrf_token %}
+
+    <input class="form-control mt-2" type="text" name="nombre" placeholder="Nombre">
+    <input class="form-control mt-2" type="text" name="tipo_producto" placeholder="Tipo producto">
+    <input class="form-control mt-2" type="date" name="fecha_caducidad">
+    <input class="form-control mt-2" type="number" step="0.01" name="precio" placeholder="Precio">
+
+    <select name="proveedor" class="form-control mt-2">
+        <option>Seleccione proveedor</option>
+        {% for p in proveedores %}
+            <option value="{{ p.id }}">{{ p.nombre }}</option>
+        {% endfor %}
+    </select>
+
+    <button class="btn btn-success mt-3">Guardar</button>
+
+</form>
+
+{% endblock %}
